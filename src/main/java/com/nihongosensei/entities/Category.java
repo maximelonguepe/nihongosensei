@@ -1,4 +1,4 @@
-package com.nihongosensei;
+package com.nihongosensei.entities;
 
 import jakarta.persistence.*;
 
