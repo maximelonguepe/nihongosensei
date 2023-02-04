@@ -1,6 +1,9 @@
 package com.nihongosensei.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table
@@ -10,6 +13,9 @@ public class Category {
     private Integer id;
     private String categoryName;
 
+    @JsonIgnoreProperties("category")
+    @OneToMany(mappedBy = "category")
+    private List<JapaneseWord> japaneseWordList;
     public Category(Integer id, String categoryName) {
         this.id = id;
         this.categoryName = categoryName;
@@ -32,5 +38,13 @@ public class Category {
     }
 
     public Category() {
+    }
+
+    public List<JapaneseWord> getJapaneseWordList() {
+        return japaneseWordList;
+    }
+
+    public void setJapaneseWordList(List<JapaneseWord> japaneseWordList) {
+        this.japaneseWordList = japaneseWordList;
     }
 }

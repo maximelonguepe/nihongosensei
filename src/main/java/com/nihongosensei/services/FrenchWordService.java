@@ -14,4 +14,8 @@ public class FrenchWordService {
     public List<FrenchWord> findAll(){
         return frenchWordRepository.findAll();
     }
+
+    public FrenchWord save(FrenchWord frenchWord){
+        return frenchWordRepository.save(frenchWord);
+    }
 }

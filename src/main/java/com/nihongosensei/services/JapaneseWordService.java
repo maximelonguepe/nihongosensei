@@ -15,4 +15,8 @@ public class JapaneseWordService {
     public List<JapaneseWord> findAll() {
         return japaneseWordRepository.findAll();
     }
+
+    public JapaneseWord save(JapaneseWord japaneseWord){
+        return japaneseWordRepository.save(japaneseWord);
+    }
 }
