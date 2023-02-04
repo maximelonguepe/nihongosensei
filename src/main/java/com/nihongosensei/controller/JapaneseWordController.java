@@ -3,9 +3,7 @@ package com.nihongosensei.controller;
 import com.nihongosensei.entities.JapaneseWord;
 import com.nihongosensei.services.JapaneseWordService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,5 +17,10 @@ public class JapaneseWordController {
     @GetMapping("")
     public List<JapaneseWord> findAll(){
         return japaneseWordService.findAll();
+    }
+
+    @PostMapping("")
+    public JapaneseWord save(@RequestBody JapaneseWord japaneseWord){
+        return japaneseWordService.save(japaneseWord);
     }
 }
