@@ -31,5 +31,21 @@ public class JapaneseWordService {
         return japaneseWordRepository.save(japaneseWord);
     }
 
+    public List<JapaneseWord> japaneseWordNotTried(){
+        return japaneseWordRepository.japaneseWordNotTried();
+    }
+
+    public List<JapaneseWord> japaneseWithBadMark(){
+        return japaneseWordRepository.japaneseWithBadMark();
+    }
+
+    public List<JapaneseWord> japaneseWordWithMediumMark(){
+        return japaneseWordRepository.japaneseWordWithMediumMark();
+    }
+    public List<JapaneseWord> japaneseWordWithGoodMark(){
+        return japaneseWordRepository.japaneseWordWithGoodMark();
+    }
+
+
 
 }

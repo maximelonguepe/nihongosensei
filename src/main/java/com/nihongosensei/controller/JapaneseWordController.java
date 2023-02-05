@@ -57,5 +57,23 @@ public class JapaneseWordController {
         } else return new ResponseEntity<>(japaneseWord, HttpStatus.OK);
     }
 
+    @GetMapping("nottried")
+    public List<JapaneseWord> japaneseWordsNotTried(){
+        return japaneseWordService.japaneseWordNotTried();
+    }
+
+    @GetMapping("badmark")
+    public List<JapaneseWord> japaneseWordsWithBadMark(){
+        return japaneseWordService.japaneseWithBadMark();
+    }
+    @GetMapping("mediummark")
+    public List<JapaneseWord> japaneseWordWithMediumMark(){
+        return japaneseWordService.japaneseWordWithMediumMark();
+    }
+
+    @GetMapping("goodmark")
+    public List<JapaneseWord> japaneseWordWithGoodMark(){
+        return japaneseWordService.japaneseWordWithGoodMark();
+    }
 
 }
