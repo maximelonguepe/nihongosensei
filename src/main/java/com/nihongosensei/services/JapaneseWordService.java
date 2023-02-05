@@ -3,9 +3,12 @@ package com.nihongosensei.services;
 import com.nihongosensei.entities.JapaneseWord;
 import com.nihongosensei.repositories.JapaneseWordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class JapaneseWordService {
@@ -16,7 +19,17 @@ public class JapaneseWordService {
         return japaneseWordRepository.findAll();
     }
 
-    public JapaneseWord save(JapaneseWord japaneseWord){
+    public JapaneseWord get(Integer id) {
+        if (japaneseWordRepository.findById(id).isPresent()){
+            return japaneseWordRepository.findById(id).get();
+        }
+        else return null;
+
+    }
+
+    public JapaneseWord save(JapaneseWord japaneseWord) {
         return japaneseWordRepository.save(japaneseWord);
     }
+
+
 }
