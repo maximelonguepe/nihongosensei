@@ -18,4 +18,9 @@ public class FrenchWordService {
     public FrenchWord save(FrenchWord frenchWord){
         return frenchWordRepository.save(frenchWord);
     }
+
+    public List<FrenchWord> findByFrenchWord(String word){
+        return frenchWordRepository.findFrenchWordByWord(word);
+    }
+
 }

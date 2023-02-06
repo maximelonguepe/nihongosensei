@@ -2,6 +2,7 @@ package com.nihongosensei.controller;
 
 import com.nihongosensei.entities.FrenchWord;
 import com.nihongosensei.services.FrenchWordService;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,8 +18,14 @@ public class FrenchWordController {
         return frenchWordService.findAll();
     }
 
+    @GetMapping("findByWord")
+    public List<FrenchWord> findByWord(@PathParam("word") String word){
+        return frenchWordService.findByFrenchWord(word);
+    }
     @PostMapping("")
     public FrenchWord save(@RequestBody FrenchWord frenchWord){
         return frenchWordService.save(frenchWord);
     }
+
+
 }

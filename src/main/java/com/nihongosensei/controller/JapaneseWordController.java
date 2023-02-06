@@ -31,22 +31,21 @@ public class JapaneseWordController {
     @PostMapping("check")
     public boolean verifie(@RequestBody JapaneseWord japaneseWord) {
         JapaneseWord japaneseWordGet = japaneseWordService.get(japaneseWord.getId());
-        if(japaneseWordGet==null){
+        if (japaneseWordGet == null) {
 
             return false;
         }
         japaneseWordGet.incrementTries();
-        if(JapaneseWordUtil.verifieSiMemeMot(japaneseWordGet,japaneseWord)){
+        if (JapaneseWordUtil.verifieSiMemeMot(japaneseWordGet, japaneseWord)) {
             japaneseWordGet.incrementRightTries();
-        }
-        else {
+        } else {
             japaneseWordGet.incrementWrongTries();
 
         }
         japaneseWordGet.revalueMark();
         japaneseWordService.save(japaneseWordGet);
 
-        return JapaneseWordUtil.verifieSiMemeMot(japaneseWordGet,japaneseWord);
+        return JapaneseWordUtil.verifieSiMemeMot(japaneseWordGet, japaneseWord);
     }
 
     @GetMapping("find")
@@ -58,21 +57,22 @@ public class JapaneseWordController {
     }
 
     @GetMapping("nottried")
-    public List<JapaneseWord> japaneseWordsNotTried(){
+    public List<JapaneseWord> japaneseWordsNotTried() {
         return japaneseWordService.japaneseWordNotTried();
     }
 
     @GetMapping("badmark")
-    public List<JapaneseWord> japaneseWordsWithBadMark(){
+    public List<JapaneseWord> japaneseWordsWithBadMark() {
         return japaneseWordService.japaneseWithBadMark();
     }
+
     @GetMapping("mediummark")
-    public List<JapaneseWord> japaneseWordWithMediumMark(){
+    public List<JapaneseWord> japaneseWordWithMediumMark() {
         return japaneseWordService.japaneseWordWithMediumMark();
     }
 
     @GetMapping("goodmark")
-    public List<JapaneseWord> japaneseWordWithGoodMark(){
+    public List<JapaneseWord> japaneseWordWithGoodMark() {
         return japaneseWordService.japaneseWordWithGoodMark();
     }
 
