@@ -2,11 +2,15 @@ package com.nihongosensei.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
 @Table
+@Getter
+@Setter
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,22 +22,6 @@ public class Category {
     private List<JapaneseWord> japaneseWordList;
     public Category(Integer id, String categoryName) {
         this.id = id;
-        this.categoryName = categoryName;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
     }
 
